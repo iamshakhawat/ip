@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random IP Genarator</title>
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Refresh_font_awesome.svg/500px-Refresh_font_awesome.svg.png" type="image/x-icon">
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            /* position: relative; */
+        }
+        .main-content{
+            width: 60%;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: #fffcfc;
+            border: 1px solid #fceeee;
+            padding: 10px 20px;
+            text-align: center;
+            transition: all ease 0.5s ;
+            border-radius: 10px;
+        }
+        .main-content:hover{
+            box-shadow: 0px 0px 20px 0px #acabab;
+        }
+        .main-content h1{
+            font-family: monospace;
+            font-size: 4.5vw;
+            
+        }
+        .main-content button{
+            outline: none;
+            border: none;
+            background:none;
+            height: 20px;
+            width: 30px;
+            display: block;
+            margin-left:auto ;
+            color: black;
+            cursor: pointer;
+            transition: all ease 0.5s;
+        }
+        .main-content button img{
+            height: 100%;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <h1>IP: <span id="first">0</span>.<span id="secound">0</span>.<span id="third">0</span>.<span id="fourth">0</span>/<span id="cidr">0</span></h1>
+        <button id="refresh" onclick="refresh()">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Refresh_font_awesome.svg/500px-Refresh_font_awesome.svg.png" alt="" />
+        </button>
+    </div>
+    <script>
+        function refresh(){
+            rand1 = Math.floor(Math.random()*255);
+            rand2 = Math.floor(Math.random()*255);
+            rand3 = Math.floor(Math.random()*255);
+            rand4 = Math.floor(Math.random()*255);
+            cidr = Math.floor(Math.random()*30);
+            if(cidr < 8){
+                cidr = 8
+            }
+            if(cidr > 32){
+                cidr = 30
+            }
+            document.getElementById('first').innerHTML=rand1
+            document.getElementById('secound').innerHTML=rand2
+            document.getElementById('third').innerHTML=rand3
+            document.getElementById('fourth').innerHTML=rand4
+            document.getElementById('cidr').innerHTML=cidr
+        }
+    </script>
+</body>
+</html>
